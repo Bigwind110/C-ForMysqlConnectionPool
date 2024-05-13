@@ -100,7 +100,7 @@ void ConnectionPool::recycleConnection()
 		while (m_connectionQ.size() > m_maxSize)
 		{
 			std::this_thread::sleep_for(std::chrono::milliseconds(5000));
-			m_mutexQ.lock();
+			std::unique_lock<std::mutex> locker(m_mutexQ);
 			/*std::unique_lock<std::mutex> locker(m_mutexQ);
 			while (m_connectionQ.size() < m_minSize)
 			{
@@ -116,7 +116,7 @@ void ConnectionPool::recycleConnection()
 			{
 				break;
 			}
-			m_mutexQ.unlock();
+	
 		}
 	}
 }
