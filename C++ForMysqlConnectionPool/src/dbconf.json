@@ -1,0 +1,11 @@
+{
+  "ip": "127.0.0.0",
+  "user": "root",
+  "dbName": "dev_spim",
+  "passwd": "mysql", 
+  "port": 3306,
+  "minSize": 10,
+  "maxSize": 100,
+  "maxIdleTime": 5000,
+  "timeout": 1000
+}
